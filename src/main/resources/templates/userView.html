@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>User</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>User</h1>
+	<a href="updateuser" th:href="@{/deleteuser (id=${user.id})}"
+         th:if="${user.id}">Delete</a>
+	<form action="#" th:action="@{/saveuser}" th:object="${user}" method="post">
+		<p>id: <input type="hidden" th:field="*{id}" /></p>		
+		<p>firstName: <input type="text" th:field="*{firstName}" /></p>
+		<p>lastName: <input type="text" th:field="*{lastName}" /></p>
+		<p><input type="submit" value="Submit" />
+	</form>
+</body>
+</html>

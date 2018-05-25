@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>User</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>User</h1>
+	<p th:text="'id: ' + ${user.id}" /> 
+	<p th:text="'firstName: ' + ${user.firstName}" />
+	<p th:text="'lastName: ' + ${user.lastName}" /> 
+	<br/>	
+	<h1>Friends</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>firstName</th>
+				<th>lastName</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="friend: ${user.friends}" style="border:1px solid black">
+				<td th:text="${friend.id}" /> 
+				<td th:text="${friend.firstName}" />
+				<td th:text="${friend.lastName}" /> 
+			<!-- 	<td><a href="deletefriend" th:href="@{/deletefriend (id=${user.id})}"/>delete</td>   --> 
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
